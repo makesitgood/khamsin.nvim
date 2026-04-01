@@ -8,7 +8,7 @@ painting. The palette is sourced directly from real temple frescos: lapis
 lazuli blue, gold leaf, malachite green, red ochre, faience glaze, and
 carbon black.
 
-![khamsin preview](https://raw.githubusercontent.com/YOU/khamsin.nvim/main/preview.png)
+![khamsin preview](https://raw.githubusercontent.com/makesitgood/khamsin.nvim/main/preview.png)
 
 ---
 

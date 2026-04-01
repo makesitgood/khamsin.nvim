@@ -58,7 +58,7 @@ Colors map directly to Egyptian pigments:
 
 ```lua
 {
-  "YOU/khamsin.nvim",
+  "makesitgood/khamsin.nvim",
   lazy = false,
   priority = 1000,
   config = function()
@@ -71,7 +71,7 @@ Colors map directly to Egyptian pigments:
 
 ```lua
 use {
-  "YOU/khamsin.nvim",
+  "makesitgood/khamsin.nvim",
   config = function()
     vim.cmd.colorscheme("khamsin")
   end,

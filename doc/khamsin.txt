@@ -1,0 +1,165 @@
+*khamsin.txt*  Ancient Egyptian colorscheme for Neovim
+
+Author:   you
+License:  MIT
+Homepage: https://github.com/YOU/khamsin.nvim
+
+==============================================================================
+CONTENTS                                                      *khamsin-contents*
+
+  1. Introduction ............ |khamsin-introduction|
+  2. Requirements ............ |khamsin-requirements|
+  3. Installation ............ |khamsin-installation|
+  4. Usage ................... |khamsin-usage|
+  5. Palette ................. |khamsin-palette|
+  6. Plugin support .......... |khamsin-plugins|
+  7. Lualine ................. |khamsin-lualine|
+
+==============================================================================
+1. INTRODUCTION                                           *khamsin-introduction*
+
+Khamsin is a dark Neovim colorscheme drawn from the pigments of ancient
+Egyptian wall painting: lapis lazuli blue, gold leaf, malachite green,
+red ochre, faience glaze, and kohl black. The palette is sourced directly
+from temple frescos and illuminated papyri.
+
+Supports:
+  - Treesitter highlight groups (@variable, @function, etc.)
+  - LSP semantic token groups (@lsp.type.*, @lsp.mod.*)
+  - Diagnostic highlights
+  - Popular plugins (telescope, nvim-tree, gitsigns, etc.)
+
+The name: a khamsin is a hot desert wind that sweeps off the Sahara into
+Egypt — warm, ancient, and relentless.
+
+==============================================================================
+2. REQUIREMENTS                                           *khamsin-requirements*
+
+  - Neovim >= 0.9.0
+  - A terminal with true color support (termguicolors)
+  - Optional: nvim-treesitter for enhanced syntax highlighting
+  - Optional: An LSP server that supports semantic tokens
+
+==============================================================================
+3. INSTALLATION                                           *khamsin-installation*
+
+With lazy.nvim: >lua
+  {
+    "YOU/khamsin.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("khamsin")
+    end,
+  }
+<
+With packer.nvim: >lua
+  use {
+    "YOU/khamsin.nvim",
+    config = function()
+      vim.cmd.colorscheme("khamsin")
+    end,
+  }
+<
+Manually (vim-plug): >vim
+  Plug 'YOU/khamsin.nvim'
+<
+Then in your config: >lua
+  vim.cmd.colorscheme("khamsin")
+<
+
+==============================================================================
+4. USAGE                                                         *khamsin-usage*
+
+Set the colorscheme: >vim
+  :colorscheme khamsin
+<
+Or in Lua: >lua
+  vim.cmd.colorscheme("khamsin")
+<
+Or call the loader directly: >lua
+  require("khamsin").load()
+<
+
+==============================================================================
+5. PALETTE                                                     *khamsin-palette*
+
+You can access the palette in your own config: >lua
+  local p = require("khamsin.palette")
+  -- p.gold, p.lapis, p.malachite, etc.
+<
+Color names and their Egyptian inspiration:
+
+  black        #000000   pure black background
+  tomb         #0d0b08   near-black warm (inactive windows)
+  obsidian     #1a1510   dark surface (popups, statusline)
+  shadow       #241e16   cursorline, selection
+  sandstone    #4a3d2a   line numbers, borders
+  stone        #8a7660   comments
+  papyrus      #cbbfaf   default text (warm off-white)
+  linen        #a0927e   parameters, secondary identifiers
+
+  gold         #d4942a   egyptian gold leaf — keywords
+  pale_gold    #c8a84b   diluted gold — types, classes
+  lapis        #4a9eb5   lapis lazuli — functions
+  malachite    #7fbf6f   malachite green — strings
+  terracotta   #c46a3a   red ochre — numbers, constants
+  faience      #5a9a80   faience glaze — imports, modules
+  copper       #b87a52   aged copper — operators
+  kohl         #7a6a90   kohl eye paint — decorators
+  sunset       #e08050   horus-eye orange — builtins
+  carnelian    #cc4444   carnelian gemstone — errors
+
+==============================================================================
+6. PLUGIN SUPPORT                                             *khamsin-plugins*
+
+Built-in highlight groups are defined for:
+
+  - nvim-cmp
+  - Telescope
+  - nvim-tree / neo-tree
+  - gitsigns
+  - indent-blankline (v3)
+  - which-key
+  - trouble.nvim
+
+If a plugin you use isn't styled, open an issue or PR.
+
+==============================================================================
+7. LUALINE                                                   *khamsin-lualine*
+
+Suggested lualine config using khamsin mode colors: >lua
+  local p = require("khamsin.palette")
+
+  local khamsin_lualine = {
+    normal = {
+      a = { fg = p.black, bg = p.gold,      gui = "bold" },
+      b = { fg = p.papyrus, bg = p.obsidian },
+      c = { fg = p.stone,   bg = p.tomb },
+    },
+    insert = {
+      a = { fg = p.black, bg = p.malachite, gui = "bold" },
+    },
+    visual = {
+      a = { fg = p.black, bg = p.kohl,      gui = "bold" },
+    },
+    replace = {
+      a = { fg = p.black, bg = p.carnelian, gui = "bold" },
+    },
+    command = {
+      a = { fg = p.black, bg = p.lapis,     gui = "bold" },
+    },
+    inactive = {
+      a = { fg = p.dust,  bg = p.tomb },
+      b = { fg = p.dust,  bg = p.tomb },
+      c = { fg = p.dust,  bg = p.tomb },
+    },
+  }
+
+  require("lualine").setup({
+    options = { theme = khamsin_lualine },
+  })
+<
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:

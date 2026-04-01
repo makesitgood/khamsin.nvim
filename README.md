@@ -1,5 +1,7 @@
 # 𓂀 khamsin.nvim
 
+Claude did this, not taking credit I just told it what to do
+
 > *A khamsin is the hot desert wind that sweeps off the Sahara into Egypt —
 > warm, ancient, and relentless.*
 
@@ -81,7 +83,7 @@ use {
 **vim-plug**:
 
 ```vim
-Plug 'YOU/khamsin.nvim'
+Plug 'makesitgood/khamsin.nvim'
 ```
 
 ---
